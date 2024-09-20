@@ -13,7 +13,10 @@
       "lookup": "STE_NAME21",
       "from": {
         "data": {
-          "url": "data/hw5.csv"
+          "url": "data/hw5.csv",
+          "format": {
+            "type": "csv"
+          }
         },
         "key": "State",
         "fields": ["Persons"]
