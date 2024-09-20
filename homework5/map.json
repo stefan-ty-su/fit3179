@@ -1,0 +1,32 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 300,
+    "data": {
+      "url": "data/STE_2021_AUST_GDA2020.json",
+      "format": {
+        "type": "topojson",
+        "feature": "STE_2021_AUST_GDA2020"
+      }
+    },
+    "transform": [{
+      "lookup": "STE_NAME21",
+      "from": {
+        "data": {
+          "url": "data/hw5.csv"
+        },
+        "key": "State",
+        "fields": ["Persons"]
+      }
+    }],
+    "projection": {
+      "type": "mercator"
+    },
+    "mark": "geoshape",
+    "encoding": {
+      "color": {
+        "field": "Persons",
+        "type": "quantitative"
+      }
+    }
+  }
