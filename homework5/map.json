@@ -40,7 +40,7 @@
       },
       "tooltip": [
         {"field": "properties.STE_NAME21", "title": "State"},
-        {"field": "Proportion", "title": "% Australian Born", "format": ".2f"}
+        {"field": "% Australian Born", "title": "% Australian Born", "format": ".2f"}
       ]
     }
 }
