@@ -25,7 +25,7 @@
                 "feature": "STE_2021_AUST_GDA2020"
             }
         },
-        "title": "% of Population Born in Australia",
+        "title": "% of Australian Population Born in Australia (2021)",
         "transform": [{
         "lookup": "properties.STE_NAME21",
         "from": {
@@ -51,14 +51,17 @@
             "stroke": "white"
         },
         "encoding": {
-        "color": {
-            "field": "% Australian Born",
-            "type": "quantitative"
-        },
-        "tooltip": [
-            {"field": "properties.STE_NAME21", "title": "State"},
-            {"field": "% Australian Born", "title": "% Australian Born", "format": ".2f"}
-        ]
+            "color": {
+                "field": "% Australian Born",
+                "type": "quantitative",
+                "scale": {
+                    "scheme": "reds"
+                }
+            },
+            "tooltip": [
+                {"field": "properties.STE_NAME21", "title": "State"},
+                {"field": "% Australian Born", "title": "% Australian Born", "format": ".2f"}
+            ]
         }
     }
     vegaEmbed('#map', spec);

@@ -36,7 +36,10 @@
     "encoding": {
       "color": {
         "field": "% Australian Born",
-        "type": "quantitative"
+        "type": "quantitative",
+        "scale": {
+            "scheme": "reds"
+        }
       },
       "tooltip": [
         {"field": "properties.STE_NAME21", "title": "State"},
