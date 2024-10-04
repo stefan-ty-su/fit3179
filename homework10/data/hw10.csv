@@ -1,81 +1,81 @@
-State,Country of Birth,Persons
-Western Australia,Australia,1648804
-Western Australia,England,196885
-Western Australia,New Zealand,75591
-Western Australia,India,61088
-Western Australia,South Africa,44889
-Western Australia,Philippines,37524
-Western Australia,China,28415
-Western Australia,Italy,18175
-Western Australia,Vietnam,18080
-Western Australia,Nepal,4449
-Northern Territory,Australia,161573
-Northern Territory,Philippines,6391
-Northern Territory,England,5053
-Northern Territory,India,5045
-Northern Territory,New Zealand,4041
-Northern Territory,Nepal,2994
-Northern Territory,China,1705
-Northern Territory,Vietnam,1350
-Northern Territory,South Africa,949
-Northern Territory,Italy,502
-South Australia,Australia,1273356
-South Australia,England,95248
-South Australia,India,44881
-South Australia,China,25709
-South Australia,Vietnam,17033
-South Australia,Italy,16653
-South Australia,Philippines,15503
-South Australia,New Zealand,13461
-South Australia,South Africa,8212
-South Australia,Nepal,7250
-Queensland,Australia,3680014
-Queensland,New Zealand,208572
-Queensland,England,191731
-Queensland,India,71819
-Queensland,China,55762
-Queensland,Philippines,51529
-Queensland,South Africa,49699
-Queensland,Vietnam,24455
-Queensland,Italy,13217
-Queensland,Nepal,10806
-New South Wales,Australia,5277591
-New South Wales,China,247595
-New South Wales,England,231385
-New South Wales,India,208962
-New South Wales,New Zealand,118527
-New South Wales,Philippines,106930
-New South Wales,Vietnam,97995
-New South Wales,Nepal,64946
-New South Wales,South Africa,49740
-New South Wales,Italy,47197
-Australian Capital Territory,Australia,306909
-Australian Capital Territory,India,17203
-Australian Capital Territory,England,13245
-Australian Capital Territory,China,12149
-Australian Capital Territory,Nepal,5689
-Australian Capital Territory,New Zealand,5122
-Australian Capital Territory,Philippines,5058
-Australian Capital Territory,Vietnam,4082
-Australian Capital Territory,South Africa,2338
-Australian Capital Territory,Italy,1912
-Victoria,Australia,4228686
-Victoria,India,258193
-Victoria,England,174552
-Victoria,China,171447
-Victoria,New Zealand,99344
-Victoria,Vietnam,93598
-Victoria,Philippines,68463
-Victoria,Italy,64796
-Victoria,South Africa,31274
-Victoria,Nepal,20154
-Tasmania,Australia,440818
-Tasmania,England,19283
-Tasmania,China,6830
-Tasmania,Nepal,6219
-Tasmania,India,6137
-Tasmania,New Zealand,5483
-Tasmania,Philippines,2441
-Tasmania,South Africa,2089
-Tasmania,Vietnam,1390
-Tasmania,Italy,874
+State,Country of Birth,Persons,Total
+Western Australia,Australia,1648804,2660026
+Western Australia,England,196885,2660026
+Western Australia,New Zealand,75591,2660026
+Western Australia,India,61088,2660026
+Western Australia,South Africa,44889,2660026
+Western Australia,Philippines,37524,2660026
+Western Australia,China,28415,2660026
+Western Australia,Italy,18175,2660026
+Western Australia,Vietnam,18080,2660026
+Western Australia,Nepal,4449,2660026
+Northern Territory,Australia,161573,232605
+Northern Territory,Philippines,6391,232605
+Northern Territory,England,5053,232605
+Northern Territory,India,5045,232605
+Northern Territory,New Zealand,4041,232605
+Northern Territory,Nepal,2994,232605
+Northern Territory,China,1705,232605
+Northern Territory,Vietnam,1350,232605
+Northern Territory,South Africa,949,232605
+Northern Territory,Italy,502,232605
+South Australia,Australia,1273356,1781516
+South Australia,England,95248,1781516
+South Australia,India,44881,1781516
+South Australia,China,25709,1781516
+South Australia,Vietnam,17033,1781516
+South Australia,Italy,16653,1781516
+South Australia,Philippines,15503,1781516
+South Australia,New Zealand,13461,1781516
+South Australia,South Africa,8212,1781516
+South Australia,Nepal,7250,1781516
+Queensland,Australia,3680014,5156138
+Queensland,New Zealand,208572,5156138
+Queensland,England,191731,5156138
+Queensland,India,71819,5156138
+Queensland,China,55762,5156138
+Queensland,Philippines,51529,5156138
+Queensland,South Africa,49699,5156138
+Queensland,Vietnam,24455,5156138
+Queensland,Italy,13217,5156138
+Queensland,Nepal,10806,5156138
+New South Wales,Australia,5277591,8072163
+New South Wales,China,247595,8072163
+New South Wales,England,231385,8072163
+New South Wales,India,208962,8072163
+New South Wales,New Zealand,118527,8072163
+New South Wales,Philippines,106930,8072163
+New South Wales,Vietnam,97995,8072163
+New South Wales,Nepal,64946,8072163
+New South Wales,South Africa,49740,8072163
+New South Wales,Italy,47197,8072163
+Australian Capital Territory,Australia,306909,454499
+Australian Capital Territory,India,17203,454499
+Australian Capital Territory,England,13245,454499
+Australian Capital Territory,China,12149,454499
+Australian Capital Territory,Nepal,5689,454499
+Australian Capital Territory,New Zealand,5122,454499
+Australian Capital Territory,Philippines,5058,454499
+Australian Capital Territory,Vietnam,4082,454499
+Australian Capital Territory,South Africa,2338,454499
+Australian Capital Territory,Italy,1912,454499
+Victoria,Australia,4228686,6503491
+Victoria,India,258193,6503491
+Victoria,England,174552,6503491
+Victoria,China,171447,6503491
+Victoria,New Zealand,99344,6503491
+Victoria,Vietnam,93598,6503491
+Victoria,Philippines,68463,6503491
+Victoria,Italy,64796,6503491
+Victoria,South Africa,31274,6503491
+Victoria,Nepal,20154,6503491
+Tasmania,Australia,440818,557571
+Tasmania,England,19283,557571
+Tasmania,China,6830,557571
+Tasmania,Nepal,6219,557571
+Tasmania,India,6137,557571
+Tasmania,New Zealand,5483,557571
+Tasmania,Philippines,2441,557571
+Tasmania,South Africa,2089,557571
+Tasmania,Vietnam,1390,557571
+Tasmania,Italy,874,557571
