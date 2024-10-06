@@ -91,14 +91,25 @@
           {
       "data": {
         "values":[
-          {"state_name": "Victoria", "lat":-37.0201, "long":144.9646}
-          
+          {"state_name": "VIC", "lat":-37, "long":144},
+          {"state_name": "NT", "lat":-20, "long":133.5},
+          {"state_name": "SA", "lat":-30, "long":135},
+          {"state_name": "WA", "lat":-26, "long":122},
+          {"state_name": "QLD", "lat":-24, "long":145},
+          {"state_name": "NSW", "lat":-32, "long":146},
+          {"state_name": "ACT", "lat":-35.7, "long":152},
+          {"state_name": "TAS", "lat":-42, "long":143}
         ]
       },
       "projection": {
         "type": "mercator"
       },
-      "mark": "text",
+      "mark": {
+        "type":"text",
+        "fill": "blue",
+        "fontSize": 12,
+        "fontWeight": "bold"
+      },
       "encoding":  {
         "latitude": {
           "field": "lat"
