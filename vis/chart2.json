@@ -1,0 +1,68 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "params": [
+        {
+            "name": "State_selection",
+            "value": "Australia",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Australia",
+                    "Western Australia",
+                    "Northern Territory",
+                    "South Australia",
+                    "Queensland",
+                    "New South Wales",
+                    "Australian Capital Territory",
+                    "Tasmania",
+                    "Victoria"
+                ],
+                "labels": [
+                    "Australia",
+                    "Western Australia",
+                    "Northern Territory",
+                    "South Australia",
+                    "Queensland",
+                    "New South Wales",
+                    "Australian Capital Territory",
+                    "Tasmania",
+                    "Victoria"
+                ],
+                "name": "State Selection: "
+            }
+        }
+    ],
+    "data": {
+      "url": "data/top10languages.csv"
+    },
+    "transform": [
+        {
+            "filter": "datum.State == State_selection"
+        }
+    ], 
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Language",
+        "type": "nominal",
+        "title": "Language",
+        "sort": "-y"
+      },
+      "y": {
+        "field": "Amount",
+        "type": "quantitative",
+        "title": "Amount"
+      },
+      "color": {
+        "field": "Language",
+        "type": "nominal",
+        "legend": null
+      },
+      "tooltip": [
+        {"field": "State", "type": "nominal", "title": "State"},
+        {"field": "Language", "type": "nominal", "title": "Language"},
+        {"field": "Amount", "type": "quantitative", "title": "Amount"}
+      ]
+    }
+  }
+  

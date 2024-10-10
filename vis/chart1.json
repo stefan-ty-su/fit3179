@@ -4,11 +4,12 @@
       "url": "data/englishOnlySpeakers.csv"
     },
     "mark": "bar",
+    "width": {"step": 50},
     "encoding": {
       "x": {
         "field": "State",
         "type": "ordinal",
-        "title": "Category"
+        "title": "State"
       },
       "y": {
         "aggregate": "sum",
@@ -20,15 +21,15 @@
       "color": {
         "field": "Language",
         "type": "nominal",
-        "title": "Subcategory",
+        "title": "Language",
         "scale": {
-          "scheme": "category10"
+          "range": ["#5C5CFF", "#ff6961", "#ababab"]
         }
       },
       "tooltip": [
-        {"field": "Category", "type": "ordinal", "title": "Category"},
-        {"field": "Subcategory", "type": "nominal", "title": "Subcategory"},
-        {"field": "Value", "type": "quantitative", "title": "Value"}
+        {"field": "State", "type": "ordinal", "title": "State"},
+        {"field": "Language", "type": "nominal", "title": "Language"},
+        {"field": "Amount", "type": "quantitative", "title": "Amount"}
       ]
     },
     "config": {
