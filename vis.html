@@ -13,9 +13,115 @@
 <body>
   <div id="map1"></div>
   <div id="map2"></div>
+  <div id="chart1"></div>
+  <div id="chart2"></div>
 
   <script>
     const spec1 = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "width": 800,
+        "height": 500,
+        "layer": [
+        {
+            "data": {
+            "url": "vis/data/world_map.json",
+            "format": {
+                "type": "topojson",
+                "feature": "custom.geo"
+            }
+            },
+            "projection": {
+            "type": "mercator",
+            "center": [0, 50],  
+            "scale": 100
+            },
+            "mark": {
+            "type": "geoshape",
+            "fill": "lightgray",
+            "stroke": "white"
+            }
+        },
+        {
+            "data": {
+            "url": "vis/data/ne_110m_graticules_30.json",
+            "format": {
+                "type": "topojson",
+                "feature": "ne_110m_graticules_30"
+            }
+            },
+            "projection": {
+            "type": "mercator",
+            "center": [0, 50],  
+            "scale": 100
+            },
+            "mark": {
+            "type": "geoshape",
+            "stroke": "lightblue",
+            "strokeWidth": 0.5
+            }
+        },
+        {
+            "data": {
+            "url": "vis/data/CoBAus.csv"
+            },
+            "transform": [
+            {
+                "lookup": "Country",
+                "from": {
+                "data": {
+                    "url": "vis/data/countries.csv"
+                },
+                "key": "name",
+                "fields": ["latitude", "longitude"]
+                },
+                "as": ["origin_latitude", "origin_longitude"]
+            },
+            {
+                "calculate": "-25.2744",
+                "as": "dest_latitude"
+            },
+            {
+                "calculate": "133.7751",
+                "as": "dest_longitude"
+            }
+            ],
+            "projection": {
+            "type": "mercator",
+            "center": [0, 50],  
+            "scale": 100
+            },
+            "mark": {
+            "type":"rule",
+            "color": "red",
+            "opacity": 0.7
+            },
+            "encoding": {
+            "longitude": {
+                "field": "origin_longitude",
+                "type": "quantitative"
+            },
+            "latitude": {
+                "field": "origin_latitude",
+                "type": "quantitative"
+            },
+            "strokeWidth": {
+                "field": "Persons",
+                "type": "quantitative",
+                "scale": {
+                    "range": [1, 8]
+                }
+            },
+            "longitude2": {"field": "dest_longitude"},
+            "latitude2": {"field": "dest_latitude"}
+            }
+        }
+        ]
+    }
+        vegaEmbed('#map1', spec1);
+  </script>
+
+  <script>
+    const spec2 = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "width": 500,
         "height": 300,
@@ -142,112 +248,51 @@
         ]
         
     }
-    vegaEmbed('#map1', spec1);
+    vegaEmbed('#map2', spec2);
 
   </script>
 
   <script>
-    const spec2 = {
+    const spec3 = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-        "width": 800,
-        "height": 500,
-        "layer": [
-        {
-            "data": {
-            "url": "vis/data/world_map.json",
-            "format": {
-                "type": "topojson",
-                "feature": "custom.geo"
-            }
-            },
-            "projection": {
-            "type": "mercator",
-            "center": [0, 50],  
-            "scale": 100
-            },
-            "mark": {
-            "type": "geoshape",
-            "fill": "lightgray",
-            "stroke": "white"
-            }
+        "data": {
+            "url": "data/englishOnlySpeakers.csv"
         },
-        {
-            "data": {
-            "url": "vis/data/ne_110m_graticules_30.json",
-            "format": {
-                "type": "topojson",
-                "feature": "ne_110m_graticules_30"
+        "mark": "bar",
+        "width": {"step": 50},
+        "encoding": {
+            "x": {
+            "field": "State",
+            "type": "ordinal",
+            "title": "State"
+            },
+            "y": {
+            "aggregate": "sum",
+            "field": "Amount",
+            "type": "quantitative",
+            "stack": "normalize",
+            "title": "Percentage"
+            },
+            "color": {
+            "field": "Language",
+            "type": "nominal",
+            "title": "Language",
+            "scale": {
+                "range": ["#5C5CFF", "#ff6961", "#ababab"]
             }
             },
-            "projection": {
-            "type": "mercator",
-            "center": [0, 50],  
-            "scale": 100
-            },
-            "mark": {
-            "type": "geoshape",
-            "stroke": "lightblue",
-            "strokeWidth": 0.5
-            }
+            "tooltip": [
+            {"field": "State", "type": "ordinal", "title": "State"},
+            {"field": "Language", "type": "nominal", "title": "Language"},
+            {"field": "Amount", "type": "quantitative", "title": "Amount"}
+            ]
         },
-        {
-            "data": {
-            "url": "vis/data/CoBAus.csv"
-            },
-            "transform": [
-            {
-                "lookup": "Country",
-                "from": {
-                "data": {
-                    "url": "vis/data/countries.csv"
-                },
-                "key": "name",
-                "fields": ["latitude", "longitude"]
-                },
-                "as": ["origin_latitude", "origin_longitude"]
-            },
-            {
-                "calculate": "-25.2744",
-                "as": "dest_latitude"
-            },
-            {
-                "calculate": "133.7751",
-                "as": "dest_longitude"
-            }
-            ],
-            "projection": {
-            "type": "mercator",
-            "center": [0, 50],  
-            "scale": 100
-            },
-            "mark": {
-            "type":"rule",
-            "color": "red",
-            "opacity": 0.7
-            },
-            "encoding": {
-            "longitude": {
-                "field": "origin_longitude",
-                "type": "quantitative"
-            },
-            "latitude": {
-                "field": "origin_latitude",
-                "type": "quantitative"
-            },
-            "strokeWidth": {
-                "field": "Persons",
-                "type": "quantitative",
-                "scale": {
-                    "range": [1, 8]
-                }
-            },
-            "longitude2": {"field": "dest_longitude"},
-            "latitude2": {"field": "dest_latitude"}
-            }
+        "config": {
+            "view": {"stroke": "transparent"},
+            "axis": {"labelFontSize": 12, "titleFontSize": 14}
         }
-        ]
     }
-        vegaEmbed('#map2', spec2);
+    vegaEmbed('#chart1', spec3);
   </script>
 </body>
 
