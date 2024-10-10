@@ -1,50 +1,76 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 300,
-    "projection": {
-        "type": "equalEarth"
-    },
+    "width": 800,
+    "height": 500,
     "layer": [
-        {
-            "data": {
-                "url": "data/world_map.json",
-                "format": {
-                    "type": "topojson",
-                    "feature": "custom.geo"
-                }
-            },
-            "mark": {
-                "type": "geoshape",
-                "stroke": "white"
-            }
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/stefan-ty-su/fit3179/refs/heads/main/vis/data/world_map.json",
+          "format": {
+            "type": "topojson",
+            "feature": "custom.geo"
+          }
         },
-        {
-            "data": {
-                "url": "data/CoBAus.csv",
-                "format": {
-                    "type": "csv"
-                }
-            },
-            "mark": "rule",
-            "encoding": {
-                "latitude": {
-                    "field": "datum.Latitude",
-                    "type": "quantitative"
-                },
-                "longitude": {
-                    "field": "datum.Longitude",
-                    "type": "quantitative"
-                },
-                "latitude2": {
-                    "field": "-25.274398"
-                },
-                "longitude2": {
-                    "field": "133.775136"
-                },
-                "color": {"value": "blue"}
-            }
+        "projection": {
+          "type": "equalEarth"
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": "lightgray",
+          "stroke": "white"
         }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/stefan-ty-su/fit3179/refs/heads/main/vis/data/CoBAus.csv"
+        },
+        "transform": [
+          {
+            "lookup": "Country",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/stefan-ty-su/fit3179/refs/heads/main/vis/data/CoBAus.csv"
+              },
+              "key": "Country",
+              "fields": ["latitude", "longitude"]
+            },
+            "as": ["origin_latitude", "origin_longitude"]
+          },
+          {
+            "calculate": "-25.2744",
+            "as": "dest_latitude"
+          },
+          {
+            "calculate": "133.7751",
+            "as": "dest_longitude"
+          }
+        ],
+        "projection": {
+          "type": "equalEarth"
+        },
+        "mark": {
+          "type":"rule"
+        },
+        "encoding": {
+          "longitude": {
+            "field": "origin_longitude",
+            "type": "quantitative"
+          },
+          "latitude": {
+            "field": "origin_latitude",
+            "type": "quantitative"
+          },
+          "strokeWidth": {
+            "field": "Persons",
+            "type": "quantitative",
+            "title": "Line Thickness",
+            "scale": {
+              "range": [1, 10]
+            }
+          },
+          "longitude2": {"field": "dest_longitude"},
+          "latitude2": {"field": "dest_latitude"}
+        }
+      }
     ]
-    
-}
+  }
