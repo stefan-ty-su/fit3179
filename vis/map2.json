@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 300,
+    "projection": {
+        "type": "equalEarth"
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "data/world_map.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "custom.geo"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "stroke": "white"
+            }
+        },
+        {
+            "data": {
+                "url": "data/CoBAus.csv",
+                "format": {
+                    "type": "csv"
+                }
+            },
+            "mark": "rule",
+            "encoding": {
+                "latitude": {
+                    "field": "datum.Latitude",
+                    "type": "quantitative"
+                },
+                "longitude": {
+                    "field": "datum.Longitude",
+                    "type": "quantitative"
+                },
+                "latitude2": {
+                    "field": "-25.274398"
+                },
+                "longitude2": {
+                    "field": "133.775136"
+                },
+                "color": {"value": "blue"}
+            }
+        }
+    ]
+    
+}
