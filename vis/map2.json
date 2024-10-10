@@ -22,16 +22,16 @@
       },
       {
         "data": {
-          "url": "https://raw.githubusercontent.com/stefan-ty-su/fit3179/refs/heads/main/vis/data/CoBAus.csv"
+          "url": "data/CoBAus.csv"
         },
         "transform": [
           {
             "lookup": "Country",
             "from": {
               "data": {
-                "url": "https://raw.githubusercontent.com/stefan-ty-su/fit3179/refs/heads/main/vis/data/CoBAus.csv"
+                "url": "data/countries.csv"
               },
-              "key": "Country",
+              "key": "name",
               "fields": ["latitude", "longitude"]
             },
             "as": ["origin_latitude", "origin_longitude"]
@@ -49,7 +49,9 @@
           "type": "equalEarth"
         },
         "mark": {
-          "type":"rule"
+          "type":"rule",
+          "color": "red",
+          "opacity": 0.7
         },
         "encoding": {
           "longitude": {
@@ -63,9 +65,8 @@
           "strokeWidth": {
             "field": "Persons",
             "type": "quantitative",
-            "title": "Line Thickness",
             "scale": {
-              "range": [1, 10]
+                "range": [1, 8]
             }
           },
           "longitude2": {"field": "dest_longitude"},
