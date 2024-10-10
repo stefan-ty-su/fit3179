@@ -1,0 +1,39 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "data/englishOnlySpeakers.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "State",
+        "type": "ordinal",
+        "title": "Category"
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": "Amount",
+        "type": "quantitative",
+        "stack": "normalize",
+        "title": "Percentage"
+      },
+      "color": {
+        "field": "Language",
+        "type": "nominal",
+        "title": "Subcategory",
+        "scale": {
+          "scheme": "category10"
+        }
+      },
+      "tooltip": [
+        {"field": "Category", "type": "ordinal", "title": "Category"},
+        {"field": "Subcategory", "type": "nominal", "title": "Subcategory"},
+        {"field": "Value", "type": "quantitative", "title": "Value"}
+      ]
+    },
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {"labelFontSize": 12, "titleFontSize": 14}
+    }
+  }
+  
