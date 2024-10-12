@@ -84,11 +84,12 @@
           },
           "tooltip": [
             {"field": "State", "title": "State"},
-            {"field": "% Born", "title": "% Born", "format": ".2f"}
+            {"field": "Country of Birth", "title": "Country of Birth"},
+            {"field": "% Born", "title": "% {} Born", "format": ".2f"}
           ]
         }
       },
-            {
+      {
         "data": {
           "values":[
             {"state_name": "VIC", "lat":-37, "long":144},
