@@ -156,7 +156,7 @@
                         }
                     },
                     {
-                        "calculate": "datum.Country !== null ? 'Highlighted' : 'Normal'",
+                        "calculate": "datum.Country == 'Australia' ? 'Australia' : (datum.Country !== null ? 'Highlighted' : 'Normal')",
                         "as": "highlight_status"
                     }
                     ],
@@ -174,8 +174,8 @@
                         "field": "highlight_status",
                         "type": "nominal",
                         "scale": {
-                        "domain": ["Highlighted", "Normal"],
-                        "range": ["#b0c4de", "lightgray"]
+                            "domain": ["Australia","Highlighted", "Normal"],
+                            "range": ["#ff746c","#b0c4de", "lightgray"]
                         },
                         "legend": null
                     }
