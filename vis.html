@@ -86,128 +86,129 @@
         <script>
             const spec1 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "width": 1200,
-                "height": 500,
+                "width": 800,
+                "height": 333,
                 "layer": [
-                {
-                    "data": {
-                    "url": "vis/data/world_map.json",
-                    "format": {
-                        "type": "topojson",
-                        "feature": "custom.geo"
-                    }
-                    },
-                    "transform": [
                     {
-                        "lookup": "properties.name",
-                        "from": {
                         "data": {
-                            "url": "vis/data/CoBAus.csv",
-                            "format": {"type": "csv"}
+                        "url": "vis/data/world_map.json",
+                        "format": {
+                            "type": "topojson",
+                            "feature": "custom.geo"
+                        }
                         },
-                        "key": "Country",
-                        "fields": ["Country"]
+                        "transform": [
+                        {
+                            "lookup": "properties.name",
+                            "from": {
+                            "data": {
+                                "url": "vis/data/CoBAus.csv",
+                                "format": {"type": "csv"}
+                            },
+                            "key": "Country",
+                            "fields": ["Country"]
+                            }
+                        },
+                        {
+                            "calculate": "datum.Country !== null ? 'Highlighted' : 'Normal'",
+                            "as": "highlight_status"
+                        }
+                        ],
+                        "projection": {
+                        "type": "mercator",
+                        "center": [0, 15],  
+                        "scale": 120
+                        },
+                        "mark": {
+                        "type": "geoshape",
+                        "stroke": "white"
+                        },
+                        "encoding": {
+                        "color": {
+                            "field": "highlight_status",
+                            "type": "nominal",
+                            "scale": {
+                            "domain": ["Highlighted", "Normal"],
+                            "range": ["#b0c4de", "lightgray"]
+                            },
+                            "legend": null
+                        }
                         }
                     },
                     {
-                        "calculate": "datum.Country !== null ? 'Highlighted' : 'Normal'",
-                        "as": "highlight_status"
-                    }
-                    ],
-                    "projection": {
+                        "data": {
+                        "url": "vis/data/ne_110m_graticules_30.json",
+                        "format": {
+                            "type": "topojson",
+                            "feature": "ne_110m_graticules_30"
+                        }
+                        },
+                        "projection": {
                         "type": "mercator",
                         "center": [0, 15],  
                         "scale": 170
-                    },
-                    "mark": {
+                        },
+                        "mark": {
                         "type": "geoshape",
-                        "stroke": "white"
-                    },
-                    "encoding": {
-                    "color": {
-                        "field": "highlight_status",
-                        "type": "nominal",
-                        "scale": {
-                        "domain": ["Highlighted", "Normal"],
-                        "range": ["#b0c4de", "lightgray"]
+                        "stroke": "lightblue",
+                        "strokeWidth": 0.5
                         }
-                    }
-                    }
-                },
-                {
-                    "data": {
-                    "url": "vis/data/ne_110m_graticules_30.json",
-                    "format": {
-                        "type": "topojson",
-                        "feature": "ne_110m_graticules_30"
-                    }
                     },
-                    "projection": {
-                    "type": "mercator",
-                    "center": [0, 15],  
-                    "scale": 170
-                    },
-                    "mark": {
-                    "type": "geoshape",
-                    "stroke": "lightblue",
-                    "strokeWidth": 0.5
-                    }
-                },
-                {
-                    "data": {
-                    "url": "vis/data/CoBAus.csv"
-                    },
-                    "transform": [
                     {
-                        "lookup": "Country",
-                        "from": {
                         "data": {
-                            "url": "vis/data/countries.csv"
+                        "url": "vis/data/CoBAus.csv"
                         },
-                        "key": "name",
-                        "fields": ["latitude", "longitude"]
+                        "transform": [
+                        {
+                            "lookup": "Country",
+                            "from": {
+                            "data": {
+                                "url": "vis/data/countries.csv"
+                            },
+                            "key": "name",
+                            "fields": ["latitude", "longitude"]
+                            },
+                            "as": ["origin_latitude", "origin_longitude"]
                         },
-                        "as": ["origin_latitude", "origin_longitude"]
-                    },
-                    {
-                        "calculate": "-25.2744",
-                        "as": "dest_latitude"
-                    },
-                    {
-                        "calculate": "133.7751",
-                        "as": "dest_longitude"
-                    }
-                    ],
-                    "projection": {
-                    "type": "mercator",
-                    "center": [0, 15],  
-                    "scale": 170
-                    },
-                    "mark": {
-                    "type":"rule",
-                    "color": "#347cd9",
-                    "opacity": 0.7
-                    },
-                    "encoding": {
-                    "longitude": {
-                        "field": "origin_longitude",
-                        "type": "quantitative"
-                    },
-                    "latitude": {
-                        "field": "origin_latitude",
-                        "type": "quantitative"
-                    },
-                    "strokeWidth": {
-                        "field": "Persons",
-                        "type": "quantitative",
-                        "scale": {
-                            "range": [1, 8]
+                        {
+                            "calculate": "-25.2744",
+                            "as": "dest_latitude"
+                        },
+                        {
+                            "calculate": "133.7751",
+                            "as": "dest_longitude"
                         }
-                    },
-                    "longitude2": {"field": "dest_longitude"},
-                    "latitude2": {"field": "dest_latitude"}
+                        ],
+                        "projection": {
+                        "type": "mercator",
+                        "center": [0, 15],  
+                        "scale": 170
+                        },
+                        "mark": {
+                        "type":"rule",
+                        "color": "#347cd9",
+                        "opacity": 0.7
+                        },
+                        "encoding": {
+                        "longitude": {
+                            "field": "origin_longitude",
+                            "type": "quantitative"
+                        },
+                        "latitude": {
+                            "field": "origin_latitude",
+                            "type": "quantitative"
+                        },
+                        "strokeWidth": {
+                            "field": "Persons",
+                            "type": "quantitative",
+                            "scale": {
+                                "range": [1, 8]
+                            }
+                        },
+                        "longitude2": {"field": "dest_longitude"},
+                        "latitude2": {"field": "dest_latitude"}
+                        }
                     }
-                }
                 ]
             }
             vegaEmbed('#map1', spec1);
