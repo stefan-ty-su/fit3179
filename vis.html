@@ -417,13 +417,16 @@
                     "type": "bar",
                     "color": "#347cd9"
                 },
-                "width": {"step": 25},
+                "width": {"step": 20},
                 "encoding": {
                     "x": {
                         "field": "Language",
                         "type": "nominal",
                         "title": "Language",
-                        "sort": "-y"
+                        "sort": "-y",
+                        "axis": {
+                            "labelAngle": -45
+                        }
                     },
                     "y": {
                         "field": "Amount",
