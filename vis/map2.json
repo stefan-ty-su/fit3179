@@ -16,7 +16,7 @@
             "lookup": "properties.name",
             "from": {
               "data": {
-                "url": "data/CoBAus.csv",
+                "url": "data/AncestryAus.csv",
                 "format": {"type": "csv"}
               },
               "key": "Country",
@@ -70,7 +70,7 @@
       },
       {
         "data": {
-          "url": "data/CoBAus.csv"
+          "url": "data/AncestryAus.csv"
         },
         "transform": [
           {
@@ -101,7 +101,7 @@
         "mark": {
           "type":"rule",
           "color": "#347cd9",
-          "opacity": 0.7
+          "opacity": 0.5
         },
         "encoding": {
           "longitude": {
@@ -120,8 +120,44 @@
             }
           },
           "longitude2": {"field": "dest_longitude"},
-          "latitude2": {"field": "dest_latitude"}
+          "latitude2": {"field": "dest_latitude"},
+          "tooltip": [
+            {"field": "Country", "type": "nominal", "title": "Country of Birth"},
+            {"field": "Persons", "type": "quantitative", "title": "Number of Persons"}
+          ]
+        }
+      },
+      {
+        "data": {
+          "values":[
+            {"state_name": "France", "lat":4.346785 ,"long":-52.994037}
+          ]
+        },
+        "projection": {
+          "type": "mercator",
+          "center": [25, 15],  
+          "scale": 130
+        },
+        "mark": {
+          "type":"text",
+          "fill": "blue",
+          "fontSize": 8,
+          "fontWeight": "bold",
+          "dy":-8,
+          "dx":15
+        },
+        "encoding":  {
+          "latitude": {
+            "field": "lat"
+          },
+          "longitude": {
+            "field": "long"
+          },
+          "text": {
+            "field": "state_name"
+          }
         }
       }
-    ]
+    ],
+    "title": "Number of Persons born from Foreign Countries (Top 20)"
   }

@@ -27,13 +27,16 @@
           background-color: antiquewhite;
         }
         
+        h1 {
+            text-align: center;
+        }
+
         .infoContent {
             height:100%;
             width:1200px;
             margin: 0 auto;
             background-color: white;
             padding: 20px;
-            
         }
 
         .infoSection {
@@ -44,12 +47,19 @@
 
         .infoText {
             width:300px;
-            background-color: #303030;
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 20px;
         }
 
         .infoChart {
             width:800px;
-
+        }
+        
+        .intro {
+            width: 50%;
+            margin: 0 auto;
+            padding-bottom: 20px;
         }
 
     </style>
@@ -62,10 +72,34 @@
     <header>
         Cultural Diversity of Australia
     </header>
+    
     <div class="infoContent">
+
+        <div class="intro">
+            <h1>Cultural Diversity</h1>
+            <p>
+                Cultural diversity is the presence of a variety of cultures or ethnic groups in a given social environment, such as countries and communities. It encompasses differences in language, religion, traditions, customs, values, and social behaviors that people from different cultural backgrounds bring to the community.
+                <br><br>
+                In Australia, cultural diversity is one of its most defining characteristics, as it has seen many waves of immigration since its colonisation in 1788. These immigration booms are:
+            </p>
+            <ul>
+                <li><b>Gold Rush</b> (1850s-1860s) - Europeans and Chinese</li>
+                <li><b>Post World War 2</b> (1945-1970s) - Europeans and Refugees</li>
+                <li><b>End of the White Australia Policy</b> (1970s-1980s) - Asian Countries (Vietnamese, Chinese, etc)</li>
+                <li><b>Skilled Migration Boom</b> (1990s-Present) - Significant immigration from Asian Countries</li>
+            </ul>
+        </div>
+
         <div class="infoSection">
             <div class="infoText">
-                lorem ipsum
+                <h1>Diversity by Country of Birth</h1>
+                <p>
+                    As a testament to Australia's multiculturalism, over 33% of the population as of 2021 was born in a foreign country, with   
+                    <br><br>
+                    Australia was originally colonised by the British, with many subsequent waves of European migration throughout its history up until the present. As such, European countries make up 4 of the top 20 foreign countries in which Australian residents are born in, with the United Kingdom (England, Scotland, Wales and Northern Ireland) being the top country.
+                    <br><br>
+                    As 
+                </p>
             </div>
             <div id="map1"></div>
         </div>
@@ -91,130 +125,161 @@
                 "width": 800,
                 "height": 333,
                 "layer": [
-                    {
-                        "data": {
-                            "url": "vis/data/world_map.json",
-                            "format": {
-                                "type": "topojson",
-                                "feature": "custom.geo"
-                            }
-                        },
-                        "transform": [
-                        {
-                            "lookup": "properties.name",
-                            "from": {
-                            "data": {
-                                "url": "vis/data/CoBAus.csv",
-                                "format": {"type": "csv"}
-                            },
-                            "key": "Country",
-                            "fields": ["Country"]
-                            }
-                        },
-                        {
-                            "calculate": "datum.Country == 'Australia' ? 'Australia' : (datum.Country !== null ? 'Highlighted' : 'Normal')",
-                            "as": "highlight_status"
-                        }
-                        ],
-                        "projection": {
-                        "type": "mercator",
-                        "center": [25, 15],  
-                        "scale": 130
-                        },
-                        "mark": {
-                        "type": "geoshape",
-                        "stroke": "white"
-                        },
-                        "encoding": {
-                        "color": {
-                            "field": "highlight_status",
-                            "type": "nominal",
-                            "scale": {
-                            "domain": ["Australia", "Highlighted", "Normal"],
-                            "range": ["#ff6961", "#b0c4de", "lightgray"]
-                            },
-                            "legend": null
-                        }
-                        }
-                    },
-                    {
-                        "data": {
-                            "url": "vis/data/ne_110m_graticules_30.json",
-                            "format": {
-                                "type": "topojson",
-                                "feature": "ne_110m_graticules_30"
-                            }
-                        },
-                        "projection": {
-                        "type": "mercator",
-                        "center": [25, 15],  
-                        "scale": 130
-                        },
-                        "mark": {
-                        "type": "geoshape",
-                        "stroke": "lightblue",
-                        "strokeWidth": 0.5
-                        }
-                    },
-                    {
-                        "data": {
-                            "url": "vis/data/CoBAus.csv"
-                        },
-                        "transform": [
-                        {
-                            "lookup": "Country",
-                            "from": {
-                            "data": {
-                                "url": "vis/data/countries.csv"
-                            },
-                            "key": "name",
-                            "fields": ["latitude", "longitude"]
-                            },
-                            "as": ["origin_latitude", "origin_longitude"]
-                        },
-                        {
-                            "calculate": "-25.2744",
-                            "as": "dest_latitude"
-                        },
-                        {
-                            "calculate": "133.7751",
-                            "as": "dest_longitude"
-                        }
-                        ],
-                        "projection": {
-                        "type": "mercator",
-                        "center": [25, 15],  
-                        "scale": 130
-                        },
-                        "mark": {
-                        "type":"rule",
-                        "color": "#347cd9",
-                        "opacity": 0.7
-                        },
-                        "encoding": {
-                        "longitude": {
-                            "field": "origin_longitude",
-                            "type": "quantitative"
-                        },
-                        "latitude": {
-                            "field": "origin_latitude",
-                            "type": "quantitative"
-                        },
-                        "strokeWidth": {
-                            "field": "Persons",
-                            "type": "quantitative",
-                            "scale": {
-                                "range": [1, 8]
-                            }
-                        },
-                        "longitude2": {"field": "dest_longitude"},
-                        "latitude2": {"field": "dest_latitude"},
-                        "tooltip": [
-                            {"field": "Country", "type": "nominal", "title": "Country of Birth"},
-                            {"field": "Persons", "type": "quantitative", "title": "Number of Persons"}
-                        ]
-                        }
+                {
+                    "data": {
+                    "url": "vis/data/world_map.json",
+                    "format": {
+                        "type": "topojson",
+                        "feature": "custom.geo"
                     }
+                    },
+                    "transform": [
+                    {
+                        "lookup": "properties.name",
+                        "from": {
+                        "data": {
+                            "url": "vis/data/AncestryAus.csv",
+                            "format": {"type": "csv"}
+                        },
+                        "key": "Country",
+                        "fields": ["Country"]
+                        }
+                    },
+                    {
+                        "calculate": "datum.Country !== null ? 'Highlighted' : 'Normal'",
+                        "as": "highlight_status"
+                    }
+                    ],
+                    "projection": {
+                    "type": "mercator",
+                    "center": [25, 15],  
+                    "scale": 130
+                    },
+                    "mark": {
+                    "type": "geoshape",
+                    "stroke": "white"
+                    },
+                    "encoding": {
+                    "color": {
+                        "field": "highlight_status",
+                        "type": "nominal",
+                        "scale": {
+                        "domain": ["Highlighted", "Normal"],
+                        "range": ["#b0c4de", "lightgray"]
+                        },
+                        "legend": null
+                    }
+                    }
+                },
+                {
+                    "data": {
+                    "url": "vis/data/ne_110m_graticules_30.json",
+                    "format": {
+                        "type": "topojson",
+                        "feature": "ne_110m_graticules_30"
+                    }
+                    },
+                    "projection": {
+                    "type": "mercator",
+                    "center": [25, 15],  
+                    "scale": 130
+                    },
+                    "mark": {
+                    "type": "geoshape",
+                    "stroke": "lightblue",
+                    "strokeWidth": 0.5
+                    }
+                },
+                {
+                    "data": {
+                    "url": "vis/data/AncestryAus.csv"
+                    },
+                    "transform": [
+                    {
+                        "lookup": "Country",
+                        "from": {
+                        "data": {
+                            "url": "vis/data/countries.csv"
+                        },
+                        "key": "name",
+                        "fields": ["latitude", "longitude"]
+                        },
+                        "as": ["origin_latitude", "origin_longitude"]
+                    },
+                    {
+                        "calculate": "-25.2744",
+                        "as": "dest_latitude"
+                    },
+                    {
+                        "calculate": "133.7751",
+                        "as": "dest_longitude"
+                    }
+                    ],
+                    "projection": {
+                    "type": "mercator",
+                    "center": [25, 15],  
+                    "scale": 130
+                    },
+                    "mark": {
+                    "type":"rule",
+                    "color": "#347cd9",
+                    "opacity": 0.5
+                    },
+                    "encoding": {
+                    "longitude": {
+                        "field": "origin_longitude",
+                        "type": "quantitative"
+                    },
+                    "latitude": {
+                        "field": "origin_latitude",
+                        "type": "quantitative"
+                    },
+                    "strokeWidth": {
+                        "field": "Persons",
+                        "type": "quantitative",
+                        "scale": {
+                            "range": [1, 8]
+                        }
+                    },
+                    "longitude2": {"field": "dest_longitude"},
+                    "latitude2": {"field": "dest_latitude"},
+                    "tooltip": [
+                        {"field": "Country", "type": "nominal", "title": "Country of Birth"},
+                        {"field": "Persons", "type": "quantitative", "title": "Number of Persons"}
+                    ]
+                    }
+                },
+                {
+                    "data": {
+                    "values":[
+                        {"state_name": "France", "lat":4.346785 ,"long":-52.994037}
+                    ]
+                    },
+                    "projection": {
+                    "type": "mercator",
+                    "center": [25, 15],  
+                    "scale": 130
+                    },
+                    "mark": {
+                    "type":"text",
+                    "fill": "blue",
+                    "fontSize": 8,
+                    "fontWeight": "bold",
+                    "dy":-8,
+                    "dx":15
+                    },
+                    "encoding":  {
+                    "latitude": {
+                        "field": "lat"
+                    },
+                    "longitude": {
+                        "field": "long"
+                    },
+                    "text": {
+                        "field": "state_name"
+                    }
+                    }
+                }
                 ],
                 "title": "Number of Persons born from Foreign Countries (Top 20)"
             }
