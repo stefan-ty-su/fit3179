@@ -91,7 +91,7 @@
                 "layer": [
                 {
                     "data": {
-                    "url": "data/world_map.json",
+                    "url": "vis/data/world_map.json",
                     "format": {
                         "type": "topojson",
                         "feature": "custom.geo"
@@ -102,7 +102,7 @@
                         "lookup": "properties.name",
                         "from": {
                         "data": {
-                            "url": "data/CoBAus.csv",
+                            "url": "vis/data/CoBAus.csv",
                             "format": {"type": "csv"}
                         },
                         "key": "Country",
@@ -136,7 +136,7 @@
                 },
                 {
                     "data": {
-                    "url": "data/ne_110m_graticules_30.json",
+                    "url": "vis/data/ne_110m_graticules_30.json",
                     "format": {
                         "type": "topojson",
                         "feature": "ne_110m_graticules_30"
@@ -155,14 +155,14 @@
                 },
                 {
                     "data": {
-                    "url": "data/CoBAus.csv"
+                    "url": "vis/data/CoBAus.csv"
                     },
                     "transform": [
                     {
                         "lookup": "Country",
                         "from": {
                         "data": {
-                            "url": "data/countries.csv"
+                            "url": "vis/data/countries.csv"
                         },
                         "key": "name",
                         "fields": ["latitude", "longitude"]
