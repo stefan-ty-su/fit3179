@@ -218,7 +218,7 @@
             const spec2 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
                 "width": 800,
-                "height": 300,
+                "height": 400,
                 "params": [
                     {
                         "name": "Country_of_Birth_selection",
@@ -436,8 +436,11 @@
                     "filter": "datum.State == State_selection"
                 }
             ], 
-            "mark": "bar",
-            "width": {"step": 30},
+            "mark": {
+                "type": "bar",
+                "color": "#347cd9"
+            },
+            "width": {"step": 25},
             "encoding": {
                 "x": {
                     "field": "Language",

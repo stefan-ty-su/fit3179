@@ -40,7 +40,10 @@
             "filter": "datum.State == State_selection"
         }
     ], 
-    "mark": "bar",
+    "mark": {
+      "type": "bar",
+      "color": "#347cd9"
+    },
     "width": {"step": 40},
     "encoding": {
       "x": {
