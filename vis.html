@@ -333,17 +333,17 @@
                     "x": {
                         "field": "State",
                         "type": "ordinal",
-                        "title": "State"
+                        "title": "State",
+                        "axis": {
+                            "labelAngle": 45
+                        }
                     },
                     "y": {
                         "aggregate": "sum",
                         "field": "Amount",
                         "type": "quantitative",
                         "stack": "normalize",
-                        "title": "Percentage",
-                        "axis": {
-                            "labelAngle": 45  // Rotate y-axis labels to 45 degrees
-                        }
+                        "title": "Percentage"
                     },
                     "color": {
                         "field": "Language",
