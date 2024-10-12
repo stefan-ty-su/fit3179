@@ -4,35 +4,35 @@
     "height": 300,
     "params": [
         {
-            "name": "Country_of_Birth_selection",
-            "value": "Australia",
+            "name": "Ancestry_selection",
+            "value": "Australian",
             "bind": {
                 "input": "select",
                 "options": [
-                    "Australia",
-                    "England",
-                    "India",
-                    "China",
-                    "Vietnam",
-                    "Italy",
-                    "Philippines",
-                    "New Zealand",
-                    "South Africa",
-                    "Nepal"
+                    "Australian",
+                    "English",
+                    "Irish",
+                    "Chinese",
+                    "Scottish",
+                    "Italian",
+                    "Australian Aboriginal",
+                    "German",
+                    "Indian",
+                    "Greek"
                 ],
                 "labels": [
-                    "Australia",
-                    "England",
-                    "India",
-                    "China",
-                    "Vietnam",
-                    "Italy",
-                    "Philippines",
-                    "New Zealand",
-                    "South Africa",
-                    "Nepal"
+                    "Australian",
+                    "English",
+                    "Irish",
+                    "Chinese",
+                    "Scottish",
+                    "Italian",
+                    "Australian Aboriginal",
+                    "German",
+                    "Indian",
+                    "Greek"
                 ],
-                "name": "Country of Birth Selection: "
+                "name": "Ancestry: "
             }
         }
     ]
@@ -40,7 +40,7 @@
     "layer": [
       {
         "data": {
-          "url": "data/hw10.csv",
+          "url": "data/ancestryStates.csv",
           "format": {
             "type": "csv"
           }
@@ -64,7 +64,7 @@
             "as": "% Born"
         },
         {
-            "filter": "datum['Country of Birth'] == Country_of_Birth_selection"
+            "filter": "datum.Ancestry == Ancestry_selection"
         }],
         "projection": {
           "type": "mercator"
@@ -84,7 +84,7 @@
           },
           "tooltip": [
             {"field": "State", "title": "State"},
-            {"field": "Country of Birth", "title": "Country of Birth"},
+            {"field": "Ancestry", "title": "Ancestry"},
             {"field": "% Born", "title": "% {} Born", "format": ".2f"}
           ]
         }
