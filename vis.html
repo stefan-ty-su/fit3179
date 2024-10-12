@@ -307,7 +307,8 @@
                         ]
                     }
                     }
-                ]
+                ],
+                "title": "% of State Population Born in Selected Country"
                 
             }
             vegaEmbed('#map2', spec2);
@@ -354,80 +355,82 @@
                 "config": {
                     "view": {"stroke": "transparent"},
                     "axis": {"labelFontSize": 12, "titleFontSize": 14}
-                }
+                },
+                "title": "% of Persons which are English-Only Speakers by State"
             }
             vegaEmbed('#chart1', spec3);
         </script>
 
         <script>
             const spec4 = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "width": "container",
-            "height": 300,
-            "params": [
-                {
-                    "name": "State_selection",
-                    "value": "Australia",
-                    "bind": {
-                        "input": "select",
-                        "options": [
-                            "Australia",
-                            "Western Australia",
-                            "Northern Territory",
-                            "South Australia",
-                            "Queensland",
-                            "New South Wales",
-                            "Australian Capital Territory",
-                            "Tasmania",
-                            "Victoria"
-                        ],
-                        "labels": [
-                            "Australia",
-                            "Western Australia",
-                            "Northern Territory",
-                            "South Australia",
-                            "Queensland",
-                            "New South Wales",
-                            "Australian Capital Territory",
-                            "Tasmania",
-                            "Victoria"
-                        ],
-                        "name": "State Selection: "
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "width": "container",
+                "height": 300,
+                "params": [
+                    {
+                        "name": "State_selection",
+                        "value": "Australia",
+                        "bind": {
+                            "input": "select",
+                            "options": [
+                                "Australia",
+                                "Western Australia",
+                                "Northern Territory",
+                                "South Australia",
+                                "Queensland",
+                                "New South Wales",
+                                "Australian Capital Territory",
+                                "Tasmania",
+                                "Victoria"
+                            ],
+                            "labels": [
+                                "Australia",
+                                "Western Australia",
+                                "Northern Territory",
+                                "South Australia",
+                                "Queensland",
+                                "New South Wales",
+                                "Australian Capital Territory",
+                                "Tasmania",
+                                "Victoria"
+                            ],
+                            "name": "State Selection: "
+                        }
                     }
-                }
-            ],
-            "data": {
-            "url": "vis/data/top10languages.csv"
-            },
-            "transform": [
-                {
-                    "filter": "datum.State == State_selection"
-                }
-            ], 
-            "mark": {
-                "type": "bar",
-                "color": "#347cd9"
-            },
-            "width": {"step": 25},
-            "encoding": {
-                "x": {
-                    "field": "Language",
-                    "type": "nominal",
-                    "title": "Language",
-                    "sort": "-y"
+                ],
+                "data": {
+                "url": "vis/data/top10languages.csv"
                 },
-                "y": {
-                    "field": "Amount",
-                    "type": "quantitative",
-                    "title": "Amount"
+                "transform": [
+                    {
+                        "filter": "datum.State == State_selection"
+                    }
+                ], 
+                "mark": {
+                    "type": "bar",
+                    "color": "#347cd9"
                 },
-                "tooltip": [
-                    {"field": "State", "type": "nominal", "title": "State"},
-                    {"field": "Language", "type": "nominal", "title": "Language"},
-                    {"field": "Amount", "type": "quantitative", "title": "Amount"}
-                ]
+                "width": {"step": 25},
+                "encoding": {
+                    "x": {
+                        "field": "Language",
+                        "type": "nominal",
+                        "title": "Language",
+                        "sort": "-y"
+                    },
+                    "y": {
+                        "field": "Amount",
+                        "type": "quantitative",
+                        "title": "Amount"
+                    },
+                    "tooltip": [
+                        {"field": "State", "type": "nominal", "title": "State"},
+                        {"field": "Language", "type": "nominal", "title": "Language"},
+                        {"field": "Amount", "type": "quantitative", "title": "Amount"}
+                    ]
+                },
+                "title": "Number of Speakers of Top 10 Foreign Languages by State"
             }
-        }
             vegaEmbed('#chart2', spec4);
         </script>
     </div>
