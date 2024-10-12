@@ -327,29 +327,32 @@
                 "width": {"step": 30},
                 "encoding": {
                     "x": {
-                    "field": "State",
-                    "type": "ordinal",
-                    "title": "State"
+                        "field": "State",
+                        "type": "ordinal",
+                        "title": "State"
                     },
                     "y": {
-                    "aggregate": "sum",
-                    "field": "Amount",
-                    "type": "quantitative",
-                    "stack": "normalize",
-                    "title": "Percentage"
+                        "aggregate": "sum",
+                        "field": "Amount",
+                        "type": "quantitative",
+                        "stack": "normalize",
+                        "title": "Percentage",
+                        "axis": {
+                            "labelAngle": 45  // Rotate y-axis labels to 45 degrees
+                        }
                     },
                     "color": {
-                    "field": "Language",
-                    "type": "nominal",
-                    "title": "Language",
-                    "scale": {
-                        "range": ["#5C5CFF", "#ff6961", "#ababab"]
-                    }
+                        "field": "Language",
+                        "type": "nominal",
+                        "title": "Language",
+                        "scale": {
+                            "range": ["#5C5CFF", "#ff6961", "#ababab"]
+                        }
                     },
                     "tooltip": [
-                    {"field": "State", "type": "ordinal", "title": "State"},
-                    {"field": "Language", "type": "nominal", "title": "Language"},
-                    {"field": "Amount", "type": "quantitative", "title": "Amount"}
+                        {"field": "State", "type": "ordinal", "title": "State"},
+                        {"field": "Language", "type": "nominal", "title": "Language"},
+                        {"field": "Amount", "type": "quantitative", "title": "Amount"}
                     ]
                 },
                 "config": {
