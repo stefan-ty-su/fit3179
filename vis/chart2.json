@@ -54,11 +54,6 @@
         "type": "quantitative",
         "title": "Amount"
       },
-      "color": {
-        "field": "Language",
-        "type": "nominal",
-        "legend": null
-      },
       "tooltip": [
         {"field": "State", "type": "nominal", "title": "State"},
         {"field": "Language", "type": "nominal", "title": "Language"},
