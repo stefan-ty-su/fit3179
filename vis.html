@@ -108,11 +108,11 @@
         <div class="infoSection">
             <div id="map2"></div>
             <div class="infoText">
-                <h1>Ancestry by States</h1>
+                <h1>Ancestry Distribution</h1>
                 <p>
                     Australia is made up of 8 different states. Each of these states see differing amounts of diversity from a range of ancestries. This can be observed by changing the selected ancestry in the choropleth map to the left.
                     <br><br>
-                    When looking for diversity within individual states, Victoria seems to be the most multicultural, with it exhibiting the highest or one of the highest percentages for most of the non-Australian ancestries (e.g. Indian, Italian, Greek, Chinese). This is also supported by the fact that it is the lowest in percentage for Australian-related ancestries (Australian, Australian Aboriginal). A similar levels of diversity can also be found in countries on the eastern coast of mainland Austraia and South Australia, followed by Western Australia and Tasmania.
+                    When looking for diversity within individual states, Victoria seems to be the most multicultural, with it exhibiting the highest or one of the highest percentages for most of the non-Australian ancestries (e.g. Indian, Italian, Greek, Chinese). This is also supported by the fact that it is the lowest in percentage for Australian-related ancestries (Australian, Australian Aboriginal).
                     <br><br>
                     Analysing the map, it is interesting to note that despite making up only 3% of the Australian Population, Australian Aboriginals make up a significantly large proportion of the population in the Northern Territory when compared to the other states, at nearly 25% of the population. Additionally, it is interesting that ancestries of countries in the British Isles (English, Irish, Scottich) are more common in states other than the Northern Territory.
 
@@ -177,6 +177,9 @@
                             "domain": ["Australia","Highlighted", "Normal"],
                             "range": ["#ff746c","#b0c4de", "lightgray"]
                         },
+                        "tooltip": [
+                            {"field": "Country", "type": "nominal", "title": "Country"}
+                        ],
                         "legend": null
                     }
                     }
