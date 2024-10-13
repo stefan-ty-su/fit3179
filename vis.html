@@ -93,7 +93,7 @@
 
         <div class="infoSection">
             <div class="infoText">
-                <h1>Diversity by Ancestry</h1>
+                <h1>Ancestry Diversity</h1>
                 <p>
                     As a testament to Australia's multiculturalism, over 67% of the population, as of 2021, are of foreign ancestry, and over 33% of the population was born in a foreign country. The flow map to the right shows the ancestry of residents of Australia.
                     <br><br>
@@ -121,7 +121,15 @@
         </div>
         <div class="infoSection">
             <div class="infoText">
-                lorem ipsum
+                <h1>Language Diversity</h1>
+                <p>
+                    Other than diversity through ancestry, diversity can also be measured through the languages residents of Australia speak, with over 20% of the population speaking another language at home. The first bar chart shows the proportion of each state's population which only speak English. The second bar chart shows the number of persons which speak languages other than English at home.
+                    <br><br>
+                    When looking at diversity through language, other than the Northern Territory, Victoria is the 
+                    <br><br>
+                    Analysing the map, it is interesting to note that despite making up only 3% of the Australian Population, Australian Aboriginals make up a significantly large proportion of the population in the Northern Territory when compared to the other states, at nearly 25% of the population. Additionally, it is interesting that ancestries of countries in the British Isles (English, Irish, Scottich) are more common in states other than the Northern Territory.
+
+                </p>
             </div>
             <div class="infoChart">
                 <div id="chart1"></div>
@@ -399,42 +407,38 @@
         <script>
             const spec3 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "width": 400,
-                "height": 300,
                 "data": {
                     "url": "vis/data/englishOnlySpeakers.csv"
                 },
-                "mark": "bar",
+                "mark": {
+                    "type": "bar",
+                    "tooltip": true
+                },
                 "width": {"step": 25},
                 "encoding": {
                     "x": {
-                        "field": "State",
-                        "type": "ordinal",
-                        "title": "State",
-                        "axis": {
-                            "labelAngle": -45
-                        }
+                    "field": "State",
+                    "type": "ordinal",
+                    "title": "State",
+                    "axis": {
+                        "labelAngle": -45
+                    }
                     },
                     "y": {
-                        "aggregate": "sum",
-                        "field": "Amount",
-                        "type": "quantitative",
-                        "stack": "normalize",
-                        "title": "Percentage"
+                    "aggregate": "sum",
+                    "field": "Amount",
+                    "type": "quantitative",
+                    "stack": "normalize",
+                    "title": "Percentage"
                     },
                     "color": {
-                        "field": "Language",
-                        "type": "nominal",
-                        "title": "Language",
-                        "scale": {
-                            "range": ["#5C5CFF", "#ff6961", "#ababab"]
-                        }
-                    },
-                    "tooltip": [
-                        {"field": "State", "type": "ordinal", "title": "State"},
-                        {"field": "Language", "type": "nominal", "title": "Language"},
-                        {"field": "Amount", "type": "quantitative", "title": "Amount"}
-                    ]
+                    "field": "Language",
+                    "type": "nominal",
+                    "title": "Language",
+                    "scale": {
+                        "range": ["#347cd9", "#ff6961", "#ababab"]
+                    }
+                    }
                 },
                 "config": {
                     "view": {"stroke": "transparent"},
